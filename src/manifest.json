@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Albulk - Google Photos Bulk Invitation",
+  "version": "0.1.0",
+  "description": "Bulk invite users to Google Photos albums",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://photos.google.com/*"
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://photos.google.com/*"],
+      "js": ["src/content/index.ts"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  }
+}
